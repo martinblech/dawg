@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Goofy
+//  Dawg
 //
 //  Created by Daniel Büchele on 11/29/14.
 //  Copyright (c) 2014 Daniel Büchele. All rights reserved.
@@ -55,9 +55,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDe
             var source = String(contentsOfFile: path+"/server/dist/fb.js", encoding: NSUTF8StringEncoding, error: nil)!+"init();"
         #else
             let version = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
-            var jsurl = "https://dani.taurus.uberspace.de/goofyapp/fb" + version + ".js"
-            if (NSBundle.mainBundle().objectForInfoDictionaryKey("GoofyJavaScriptURL") != nil) {
-                jsurl = NSBundle.mainBundle().objectForInfoDictionaryKey("GoofyJavaScriptURL") as! String
+            var jsurl = "https://dani.taurus.uberspace.de/Dawgapp/fb" + version + ".js"
+            if (NSBundle.mainBundle().objectForInfoDictionaryKey("DawgJavaScriptURL") != nil) {
+                jsurl = NSBundle.mainBundle().objectForInfoDictionaryKey("DawgJavaScriptURL") as! String
             }
             let source = "function getScript(url,success){ var script = document.createElement('script'); script.src = url; var head = document.getElementsByTagName('head')[0], done=false; script.onload = script.onreadystatechange = function(){ if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { done=true; success(); script.onload = script.onreadystatechange = null; head.removeChild(script); } }; head.appendChild(script); }" +
             "getScript('" + jsurl + "', function() {init();});"
@@ -93,7 +93,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDe
         var url : String = "https://messenger.com/login"
         
         /* Facebook at word support. Needs to be updated for Messenger.com
-        if (st.rangeOfString("Goofy") != nil && countElements(st) > 10) {
+        if (st.rangeOfString("Dawg") != nil && countElements(st) > 10) {
             st = (st as NSString).stringByReplacingCharactersInRange(NSRange(location: 0,length: 6), withString: "")
             url = "https://" + st.stringByReplacingOccurrencesOfString(".app", withString:"") + ".facebook.com/messages"
             changeDockIcon()

@@ -108,7 +108,7 @@ function init() {
 		e.preventDefault();
 		e.stopPropagation();
 
-		var uploadInfo = document.getElementById('goofy-upload');
+		var uploadInfo = document.getElementById('Dawg-upload');
 		if (uploadInfo) {
 			uploadInfo.parentNode.removeChild(uploadInfo);
 		}
@@ -130,11 +130,11 @@ function init() {
 }
 
 function uploadInfo() {
-	if (!document.getElementById('goofy-upload')) {
+	if (!document.getElementById('Dawg-upload')) {
 		var uploadInfo = document.createElement("DIV");
-		uploadInfo.setAttribute("id", "goofy-upload");
+		uploadInfo.setAttribute("id", "Dawg-upload");
 		var inner = document.createElement("DIV");
-		var t = document.createTextNode("Drag and drop files into Goofy to attach them to your message.");
+		var t = document.createTextNode("Drag and drop files into Dawg to attach them to your message.");
 		inner.appendChild(t);
 		uploadInfo.appendChild(inner);
 		uploadInfo.onmousedown = function() {

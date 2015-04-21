@@ -1,6 +1,6 @@
 //
-//  GoofyTests.swift
-//  GoofyTests
+//  DawgTests.swift
+//  DawgTests
 //
 //  Created by Daniel Büchele on 11/29/14.
 //  Copyright (c) 2014 Daniel Büchele. All rights reserved.
@@ -9,7 +9,7 @@
 import Cocoa
 import XCTest
 
-class GoofyTests: XCTestCase {
+class DawgTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

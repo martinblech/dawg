@@ -11,7 +11,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Goofy">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Dawg">
             <connections>
                 <outlet property="loadingView" destination="TeE-NN-cFD" id="hRa-8B-LpT"/>
                 <outlet property="longLoading" destination="8q9-2T-qDe" id="qvz-EA-01A"/>
@@ -28,19 +28,19 @@
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="GAI-1a-fMQ" customClass="SUUpdater"/>
-        <customObject id="XE1-by-mZK" customClass="MenuHandler" customModule="Goofy"/>
-        <customObject id="qLh-Hp-pnN" customClass="TitleLabel" customModule="Goofy" customModuleProvider="target">
+        <customObject id="XE1-by-mZK" customClass="MenuHandler" customModule="Dawg"/>
+        <customObject id="qLh-Hp-pnN" customClass="TitleLabel" customModule="Dawg" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="K2v-PI-Lwx" id="PrV-sl-rgb"/>
             </connections>
         </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
-                <menuItem title="Goofy" id="1Xt-HY-uBw">
+                <menuItem title="Dawg" id="1Xt-HY-uBw">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Goofy" systemMenu="apple" id="uQy-DD-JDr">
+                    <menu key="submenu" title="Dawg" systemMenu="apple" id="uQy-DD-JDr">
                         <items>
-                            <menuItem title="About Goofy" id="5kV-Vb-QxS">
+                            <menuItem title="About Dawg" id="5kV-Vb-QxS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
@@ -70,7 +70,7 @@
                                 <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                            <menuItem title="Hide Goofy" keyEquivalent="h" id="Olw-nP-bQN">
+                            <menuItem title="Hide Dawg" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
                                     <action selector="hide:" target="-1" id="PnN-Uc-m68"/>
                                 </connections>
@@ -88,7 +88,7 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                            <menuItem title="Quit Goofy" keyEquivalent="q" id="4sb-4s-VLi">
+                            <menuItem title="Quit Dawg" keyEquivalent="q" id="4sb-4s-VLi">
                                 <connections>
                                     <action selector="terminate:" target="-1" id="Te7-pn-YzF"/>
                                 </connections>
@@ -467,7 +467,7 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
-                            <menuItem title="Goofy Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                            <menuItem title="Dawg Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="y7X-2Q-9no"/>
                                 </connections>
@@ -477,7 +477,7 @@
                 </menuItem>
             </items>
         </menu>
-        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="Goofy" animationBehavior="default" id="sOM-gr-fGx">
+        <window allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="Dawg" animationBehavior="default" id="sOM-gr-fGx">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>

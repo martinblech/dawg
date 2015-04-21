@@ -1,6 +1,6 @@
 //
 //  NotificationScriptMessageHandler.swift
-//  Goofy
+//  Dawg
 //
 //  Created by Daniel Büchele on 11/29/14.
 //  Copyright (c) 2014 Daniel Büchele. All rights reserved.

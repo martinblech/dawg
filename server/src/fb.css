@@ -50,7 +50,7 @@
     display: none !important;
 }
 
-#goofy-upload {
+#dawg-upload {
     position: fixed;
     top: 0;
     left: 0;
@@ -67,7 +67,7 @@
     vertical-align: middle;
 }
 
-#goofy-upload div {
+#dawg-upload div {
     display: table-cell;
     width: 70%;
     vertical-align: middle;

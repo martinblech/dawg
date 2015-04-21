@@ -25,7 +25,7 @@
 			containerPortal = 33942F8F1A2AE7F700E6D361 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 33942F961A2AE7F700E6D361;
-			remoteInfo = Goofy;
+			remoteInfo = Dawg;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -44,16 +44,16 @@
 
 /* Begin PBXFileReference section */
 		3327A6061ACEF11A00B71853 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		3327A60A1AD16DF500B71853 /* Goofy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Goofy-Bridging-Header.h"; sourceTree = "<group>"; };
+		3327A60A1AD16DF500B71853 /* Dawg-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Dawg-Bridging-Header.h"; sourceTree = "<group>"; };
 		3327A60B1AD16E7400B71853 /* WKPreferences+DevExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKPreferences+DevExtras.h"; sourceTree = "<group>"; };
 		3327A60C1AD16EA100B71853 /* WKPreferences+DevExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKPreferences+DevExtras.m"; sourceTree = "<group>"; };
 		338FDBB51AD91FAD00164747 /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
-		33942F971A2AE7F700E6D361 /* Goofy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goofy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33942F971A2AE7F700E6D361 /* Dawg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dawg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33942F9B1A2AE7F700E6D361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33942F9C1A2AE7F700E6D361 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33942F9E1A2AE7F700E6D361 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		33942FA11A2AE7F700E6D361 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		33942FA71A2AE7F700E6D361 /* GoofyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoofyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33942FA71A2AE7F700E6D361 /* DawgTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DawgTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33942FB71A2AE8AA00E6D361 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		33B93A6A1AD68BE2003EBDDE /* MenuHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 		33C741DF1A2B02840072D81E /* NotificationScriptMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationScriptMessageHandler.swift; sourceTree = "<group>"; };
@@ -84,9 +84,9 @@
 			children = (
 				3327A60B1AD16E7400B71853 /* WKPreferences+DevExtras.h */,
 				3327A60C1AD16EA100B71853 /* WKPreferences+DevExtras.m */,
-				3327A60A1AD16DF500B71853 /* Goofy-Bridging-Header.h */,
+				3327A60A1AD16DF500B71853 /* Dawg-Bridging-Header.h */,
 				33942FB71A2AE8AA00E6D361 /* WebKit.framework */,
-				33942F991A2AE7F700E6D361 /* Goofy */,
+				33942F991A2AE7F700E6D361 /* Dawg */,
 				33942F981A2AE7F700E6D361 /* Products */,
 				DF75007D11E0E9DB18327EF8 /* Frameworks */,
 			);
@@ -95,13 +95,13 @@
 		33942F981A2AE7F700E6D361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				33942F971A2AE7F700E6D361 /* Goofy.app */,
-				33942FA71A2AE7F700E6D361 /* GoofyTests.xctest */,
+				33942F971A2AE7F700E6D361 /* Dawg.app */,
+				33942FA71A2AE7F700E6D361 /* DawgTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		33942F991A2AE7F700E6D361 /* Goofy */ = {
+		33942F991A2AE7F700E6D361 /* Dawg */ = {
 			isa = PBXGroup;
 			children = (
 				33942F9C1A2AE7F700E6D361 /* AppDelegate.swift */,
@@ -112,7 +112,7 @@
 				33942FA01A2AE7F700E6D361 /* MainMenu.xib */,
 				33942F9A1A2AE7F700E6D361 /* Supporting Files */,
 			);
-			path = Goofy;
+			path = Dawg;
 			sourceTree = "<group>";
 		};
 		33942F9A1A2AE7F700E6D361 /* Supporting Files */ = {
@@ -134,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		33942F961A2AE7F700E6D361 /* Goofy */ = {
+		33942F961A2AE7F700E6D361 /* Dawg */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 33942FB11A2AE7F700E6D361 /* Build configuration list for PBXNativeTarget "Goofy" */;
+			buildConfigurationList = 33942FB11A2AE7F700E6D361 /* Build configuration list for PBXNativeTarget "Dawg" */;
 			buildPhases = (
 				33942F931A2AE7F700E6D361 /* Sources */,
 				33942F941A2AE7F700E6D361 /* Frameworks */,
@@ -148,14 +148,14 @@
 			);
 			dependencies = (
 			);
-			name = Goofy;
-			productName = Goofy;
-			productReference = 33942F971A2AE7F700E6D361 /* Goofy.app */;
+			name = Dawg;
+			productName = Dawg;
+			productReference = 33942F971A2AE7F700E6D361 /* Dawg.app */;
 			productType = "com.apple.product-type.application";
 		};
-		33942FA61A2AE7F700E6D361 /* GoofyTests */ = {
+		33942FA61A2AE7F700E6D361 /* DawgTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 33942FB41A2AE7F700E6D361 /* Build configuration list for PBXNativeTarget "GoofyTests" */;
+			buildConfigurationList = 33942FB41A2AE7F700E6D361 /* Build configuration list for PBXNativeTarget "DawgTests" */;
 			buildPhases = (
 				33942FA31A2AE7F700E6D361 /* Sources */,
 				33942FA41A2AE7F700E6D361 /* Frameworks */,
@@ -166,9 +166,9 @@
 			dependencies = (
 				33942FA91A2AE7F700E6D361 /* PBXTargetDependency */,
 			);
-			name = GoofyTests;
-			productName = GoofyTests;
-			productReference = 33942FA71A2AE7F700E6D361 /* GoofyTests.xctest */;
+			name = DawgTests;
+			productName = DawgTests;
+			productReference = 33942FA71A2AE7F700E6D361 /* DawgTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -195,7 +195,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 33942F921A2AE7F700E6D361 /* Build configuration list for PBXProject "Goofy" */;
+			buildConfigurationList = 33942F921A2AE7F700E6D361 /* Build configuration list for PBXProject "Dawg" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -208,8 +208,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				33942F961A2AE7F700E6D361 /* Goofy */,
-				33942FA61A2AE7F700E6D361 /* GoofyTests */,
+				33942F961A2AE7F700E6D361 /* Dawg */,
+				33942FA61A2AE7F700E6D361 /* DawgTests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,7 +274,7 @@
 /* Begin PBXTargetDependency section */
 		33942FA91A2AE7F700E6D361 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 33942F961A2AE7F700E6D361 /* Goofy */;
+			target = 33942F961A2AE7F700E6D361 /* Dawg */;
 			targetProxy = 33942FA81A2AE7F700E6D361 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -383,13 +383,13 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Goofy/Info.plist;
+				INFOPLIST_FILE = Dawg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROJECT_DIR = "$(SRCROOT)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Goofy-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dawg-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -403,13 +403,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Goofy/Info.plist;
+				INFOPLIST_FILE = Dawg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = "-Wl,-rpath,@loader_path/../Frameworks";
 				OTHER_SWIFT_FLAGS = "-DRELEASE";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROJECT_DIR = "$(SRCROOT)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Goofy-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Dawg-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -426,10 +426,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = GoofyTests/Info.plist;
+				INFOPLIST_FILE = DawgTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Goofy.app/Contents/MacOS/Goofy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dawg.app/Contents/MacOS/Dawg";
 			};
 			name = Debug;
 		};
@@ -442,17 +442,17 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = GoofyTests/Info.plist;
+				INFOPLIST_FILE = DawgTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Goofy.app/Contents/MacOS/Goofy";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dawg.app/Contents/MacOS/Dawg";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		33942F921A2AE7F700E6D361 /* Build configuration list for PBXProject "Goofy" */ = {
+		33942F921A2AE7F700E6D361 /* Build configuration list for PBXProject "Dawg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33942FAF1A2AE7F700E6D361 /* Debug */,
@@ -461,7 +461,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33942FB11A2AE7F700E6D361 /* Build configuration list for PBXNativeTarget "Goofy" */ = {
+		33942FB11A2AE7F700E6D361 /* Build configuration list for PBXNativeTarget "Dawg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33942FB21A2AE7F700E6D361 /* Debug */,
@@ -470,7 +470,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33942FB41A2AE7F700E6D361 /* Build configuration list for PBXNativeTarget "GoofyTests" */ = {
+		33942FB41A2AE7F700E6D361 /* Build configuration list for PBXNativeTarget "DawgTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33942FB51A2AE7F700E6D361 /* Debug */,

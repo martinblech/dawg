@@ -1,6 +1,6 @@
 //
 //  MenuHandler.swift
-//  Goofy
+//  Dawg
 //
 //  Created by Daniel Büchele on 09/04/15.
 //  Copyright (c) 2015 Daniel Büchele. All rights reserved.
