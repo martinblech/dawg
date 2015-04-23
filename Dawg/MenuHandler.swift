@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AppKit
 
 class MenuHandler: NSObject {
 
@@ -18,7 +19,7 @@ class MenuHandler: NSObject {
     
     @IBAction func newConversation(sender: AnyObject) {
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.webView.evaluateJavaScript("newConversation()", completionHandler: nil);
+        appDelegate.webView.evaluateJavaScript("dawg.callbacks.newConversation()", completionHandler: nil);
     }
     
     @IBAction func gotoConversation(sender: AnyObject) {
@@ -33,7 +34,8 @@ class MenuHandler: NSObject {
     
     @IBAction func logout(sender: AnyObject) {
         let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.webView.evaluateJavaScript("logout()", completionHandler: nil);
+        let request = NSURLRequest(URL: NSURL(string: "https://accounts.google.com/Logout?service=profiles&continue=https://plus.google.com")!)
+        appDelegate.webView.loadRequest(request);
     }
     
     @IBAction func plus(sender: AnyObject) {

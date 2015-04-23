@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -15,13 +15,8 @@
             <connections>
                 <outlet property="loadingView" destination="TeE-NN-cFD" id="hRa-8B-LpT"/>
                 <outlet property="longLoading" destination="8q9-2T-qDe" id="qvz-EA-01A"/>
+                <outlet property="progressIndicator" destination="hDP-rt-w2a" id="uCH-5f-fCZ"/>
                 <outlet property="reactivationMenuItem" destination="tfP-aR-ouj" id="9qa-nu-U5w"/>
-                <outlet property="spinner" destination="Ac9-Ec-QfU" id="Z2D-Bs-P2j"/>
-                <outlet property="statusbarMenuItem" destination="eD5-qA-K11" id="dhs-HS-D8H"/>
-                <outlet property="titleLabel" destination="qLh-Hp-pnN" id="rR6-GM-Yi6"/>
-                <outlet property="toolbar" destination="hOM-Z7-ghb" id="kf3-qD-9Te"/>
-                <outlet property="toolbarSpacing" destination="TTq-Gl-gs8" id="rbg-uh-QPQ"/>
-                <outlet property="toolbarTrenner" destination="MEh-6L-h4y" id="7pi-S0-H2h"/>
                 <outlet property="view" destination="5iU-zi-Msx" id="EZo-0d-cCb"/>
                 <outlet property="window" destination="sOM-gr-fGx" id="weL-dl-ebA"/>
             </connections>
@@ -29,11 +24,6 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="GAI-1a-fMQ" customClass="SUUpdater"/>
         <customObject id="XE1-by-mZK" customClass="MenuHandler" customModule="Dawg"/>
-        <customObject id="qLh-Hp-pnN" customClass="TitleLabel" customModule="Dawg" customModuleProvider="target">
-            <connections>
-                <outlet property="view" destination="K2v-PI-Lwx" id="PrV-sl-rgb"/>
-            </connections>
-        </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="Dawg" id="1Xt-HY-uBw">
@@ -446,9 +436,6 @@
                                     <action selector="toggleReactivation:" target="Voe-Tx-rLC" id="uD5-Sk-5Yc"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show Menubar Icon" id="eD5-qA-K11">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
                             <menuItem title="Bring All to Front" id="yt8-L4-YOr">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
@@ -482,7 +469,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="706" height="467"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" wantsLayer="YES" id="5iU-zi-Msx">
                 <rect key="frame" x="0.0" y="0.0" width="706" height="467"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -491,100 +478,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="706" height="467"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" image="loading" id="JXy-9i-qU0"/>
                     </imageView>
-                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" alphaValue="0.5" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Ac9-Ec-QfU">
-                        <rect key="frame" x="337" y="35" width="32" height="32"/>
-                    </progressIndicator>
                     <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8q9-2T-qDe">
-                        <rect key="frame" x="18" y="10" width="670" height="17"/>
+                        <rect key="frame" x="18" y="26" width="670" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="It is taking unusually long to load the application. Try hitting ⌘+R..." id="Sl8-4D-drH">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <progressIndicator maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="hDP-rt-w2a">
+                        <rect key="frame" x="0.0" y="-1" width="706" height="20"/>
+                    </progressIndicator>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="8q9-2T-qDe" secondAttribute="bottom" constant="10" id="03p-AW-94x"/>
                     <constraint firstItem="TeE-NN-cFD" firstAttribute="top" secondItem="5iU-zi-Msx" secondAttribute="top" id="49N-2b-u2K"/>
                     <constraint firstItem="TeE-NN-cFD" firstAttribute="leading" secondItem="5iU-zi-Msx" secondAttribute="leading" id="B4s-VJ-N4s"/>
-                    <constraint firstAttribute="centerX" secondItem="Ac9-Ec-QfU" secondAttribute="centerX" id="Bab-7B-CRc"/>
+                    <constraint firstItem="hDP-rt-w2a" firstAttribute="top" secondItem="8q9-2T-qDe" secondAttribute="bottom" constant="8" id="C9e-ps-8Ws"/>
                     <constraint firstAttribute="trailing" secondItem="TeE-NN-cFD" secondAttribute="trailing" id="E2r-N3-suO"/>
                     <constraint firstAttribute="bottom" secondItem="TeE-NN-cFD" secondAttribute="bottom" id="FSz-Cs-1w2"/>
-                    <constraint firstAttribute="bottom" secondItem="Ac9-Ec-QfU" secondAttribute="bottom" constant="35" id="GCI-oL-tIf"/>
+                    <constraint firstItem="hDP-rt-w2a" firstAttribute="leading" secondItem="5iU-zi-Msx" secondAttribute="leading" id="HCJ-ab-pmz"/>
                     <constraint firstAttribute="trailing" secondItem="8q9-2T-qDe" secondAttribute="trailing" constant="20" id="Mpt-7x-6Ex"/>
+                    <constraint firstAttribute="bottom" secondItem="hDP-rt-w2a" secondAttribute="bottom" id="aFR-AG-kAf"/>
+                    <constraint firstAttribute="trailing" secondItem="hDP-rt-w2a" secondAttribute="trailing" id="iTb-1O-8gf"/>
                     <constraint firstItem="8q9-2T-qDe" firstAttribute="leading" secondItem="5iU-zi-Msx" secondAttribute="leading" constant="20" id="vTh-oR-lb8"/>
                 </constraints>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="44C7AFD1-E665-486E-99F2-1FAA1BC84FB1" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="hOM-Z7-ghb">
-                <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="lPL-Is-e1C"/>
-                    <toolbarItem implicitItemIdentifier="B4C3F4B1-5DB7-403C-A6FF-B8287AB66705" label="New" paletteLabel="New conversation" tag="-1" image="New" id="yzA-Zs-hJn">
-                        <size key="minSize" width="0.0" height="21"/>
-                        <size key="maxSize" width="0.0" height="21"/>
-                        <connections>
-                            <action selector="newConversation:" target="XE1-by-mZK" id="9pC-eK-YcA"/>
-                        </connections>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="A062131A-9FA2-4BEB-BB97-2C45EDD82653" label="Info" paletteLabel="Information" tag="-1" image="Info" id="DaP-yL-KgO">
-                        <size key="minSize" width="0.0" height="21"/>
-                        <size key="maxSize" width="0.0" height="21"/>
-                        <connections>
-                            <action selector="info:" target="XE1-by-mZK" id="TEo-pK-g0v"/>
-                        </connections>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="638B8E70-55B4-4275-9535-A63BA3C84BAB" label="Plus" paletteLabel="Add" tag="-1" image="Plus" id="vJN-Qh-zpq">
-                        <size key="minSize" width="0.0" height="21"/>
-                        <size key="maxSize" width="0.0" height="21"/>
-                        <connections>
-                            <action selector="plus:" target="XE1-by-mZK" id="3bm-Cz-4Eh"/>
-                        </connections>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="F3A39E74-79A0-46E8-B1D2-2B4E6107E565" label="" paletteLabel="" id="TTq-Gl-gs8">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="48" height="48"/>
-                        <size key="maxSize" width="153" height="48"/>
-                        <imageView key="view" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="i1V-4R-UDb">
-                            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Oug-5w-R08"/>
-                        </imageView>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="1FE8986D-A30E-452D-A8F9-93F20DB87F58" label="" paletteLabel="" id="MEh-6L-h4y">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="1" height="48"/>
-                        <size key="maxSize" width="48" height="48"/>
-                        <imageView key="view" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="E8B-GL-IND">
-                            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Epm-8O-ecp"/>
-                        </imageView>
-                    </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="1F30B311-4773-49E3-BE13-3B908A8BFD6A" label="Custom View" paletteLabel="Custom View" tag="-1" id="NOf-MJ-MB7">
-                        <nil key="toolTip"/>
-                        <size key="minSize" width="160" height="36"/>
-                        <size key="maxSize" width="9999" height="36"/>
-                        <customView key="view" id="K2v-PI-Lwx">
-                            <rect key="frame" x="0.0" y="14" width="163" height="36"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        </customView>
-                    </toolbarItem>
-                </allowedToolbarItems>
-                <defaultToolbarItems>
-                    <toolbarItem reference="TTq-Gl-gs8"/>
-                    <toolbarItem reference="yzA-Zs-hJn"/>
-                    <toolbarItem reference="MEh-6L-h4y"/>
-                    <toolbarItem reference="NOf-MJ-MB7"/>
-                    <toolbarItem reference="vJN-Qh-zpq"/>
-                    <toolbarItem reference="DaP-yL-KgO"/>
-                </defaultToolbarItems>
-            </toolbar>
             <point key="canvasLocation" x="548" y="515.5"/>
         </window>
     </objects>
     <resources>
-        <image name="Info" width="32" height="32"/>
-        <image name="New" width="32" height="32"/>
-        <image name="Plus" width="32" height="32"/>
         <image name="loading" width="300" height="200"/>
     </resources>
 </document>

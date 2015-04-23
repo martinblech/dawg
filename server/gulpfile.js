@@ -5,9 +5,9 @@ var insert = require('gulp-insert');
 var tap = require('gulp-tap');
 
 gulp.task('default', function () {
-    gulp.src('./src/fb.css').pipe(minifyCSS()).pipe(tap(function (file,t) {
-        var css = file.contents.toString('utf8');
-        gulp.src('./src/fb.js').pipe(uglify()).pipe(insert.prepend("var css='"+css+"';")).pipe(gulp.dest('./dist/'));
+    gulp.src('./src/dawg.css').pipe(minifyCSS()).pipe(tap(function (file,t) {
+        var css = JSON.stringify(file.contents.toString('utf8'));
+        gulp.src('./src/dawg.js').pipe(uglify()).pipe(insert.prepend("var css="+css+";")).pipe(gulp.dest('./dist/'));
     }));
 });
 

@@ -35,7 +35,7 @@ class NotificationScriptMessageHandler: NSObject, WKScriptMessageHandler, NSUser
                 appDelegate.quicklookMediaURL = NSURL(string: (message.body["url"] as! String))
                 break
             case "SET_TITLE":
-                appDelegate.titleLabel.setTitle(message.body["title"] as! String, active: message.body["activity"] as! String)
+                // appDelegate.titleLabel.setTitle(message.body["title"] as! String, active: message.body["activity"] as! String)
                 break
             default:
                 0
@@ -57,18 +57,11 @@ class NotificationScriptMessageHandler: NSObject, WKScriptMessageHandler, NSUser
     }
     
     func dockCount(count: String) {
-        let appDelegate = NSApplication.sharedApplication().delegate as! AppDelegate;
-        var si = NSImage(named: "StatusItem")
-        
         if (count == "0") {
             NSApplication.sharedApplication().dockTile.badgeLabel = ""
         } else {
             NSApplication.sharedApplication().dockTile.badgeLabel = count
-            //var si = NSImage(named: "StatusItemUnread")
         }
-        //si?.setTemplate(true)
-        
-        //appDelegate.statusBarItem.image = si
     }
     
     func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification) {

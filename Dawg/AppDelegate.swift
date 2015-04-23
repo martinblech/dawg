@@ -17,18 +17,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDe
     var webView : WKWebView!
     @IBOutlet var view : NSView!
     @IBOutlet var loadingView : NSImageView!
-    @IBOutlet var spinner : NSProgressIndicator!
     @IBOutlet var longLoading : NSTextField!
     @IBOutlet var reactivationMenuItem : NSMenuItem!
-    @IBOutlet var statusbarMenuItem : NSMenuItem!
-    @IBOutlet var toolbarTrenner : NSToolbarItem!
-    @IBOutlet var toolbarSpacing : NSToolbarItem!
-    @IBOutlet var toolbar : NSToolbar!
-    @IBOutlet var titleLabel : TitleLabel!
+    @IBOutlet weak var progressIndicator: NSProgressIndicator!
     
     var timer : NSTimer!
     var activatedFromBackground = false
-    var isFullscreen = false
     
     var statusBar = NSStatusBar.systemStatusBar()
     var statusBarItem : NSStatusItem = NSStatusItem()
@@ -44,15 +38,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDe
         window.titleVisibility = .Hidden
         window.delegate = self
         loadingView.layer?.backgroundColor = NSColor.whiteColor().CGColor
-
-        
-        sizeWindow(window)
         
         startLoading()
         
         #if DEBUG
             let path = NSBundle.mainBundle().objectForInfoDictionaryKey("PROJECT_DIR") as! String
-            var source = String(contentsOfFile: path+"/server/dist/fb.js", encoding: NSUTF8StringEncoding, error: nil)!+"init();"
+            var source = String(contentsOfFile: path+"/server/dist/dawg.js", encoding: NSUTF8StringEncoding, error: nil)!+"init();"
         #else
             let version = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
             var jsurl = "https://dani.taurus.uberspace.de/Dawgapp/fb" + version + ".js"
@@ -78,11 +69,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDe
         
         let configuration = WKWebViewConfiguration()
         configuration.userContentController = userContentController
+        configuration.preferences.plugInsEnabled = true
+        #if DEBUG
+            configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
+        #endif
         
         webView = WKWebView(frame: self.view.bounds, configuration: configuration)
-        //webView.configuration.preferences.enableDevExtras();
         webView.navigationDelegate = self
         webView.UIDelegate = self
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .allZeros, context: nil)
         
         // Layout
         view.addSubview(webView, positioned: NSWindowOrderingMode.Below, relativeTo: view);
@@ -90,79 +85,64 @@ class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDe
         
         var s = NSProcessInfo.processInfo().arguments[0].componentsSeparatedByString("/")
         var st: String = s[s.count-4] as! String
-        var url : String = "https://messenger.com/login"
-        
-        /* Facebook at word support. Needs to be updated for Messenger.com
-        if (st.rangeOfString("Dawg") != nil && countElements(st) > 10) {
-            st = (st as NSString).stringByReplacingCharactersInRange(NSRange(location: 0,length: 6), withString: "")
-            url = "https://" + st.stringByReplacingOccurrencesOfString(".app", withString:"") + ".facebook.com/messages"
-            changeDockIcon()
-        }*/
+        var url : String = "https://plus.google.com/hangouts"
         
         var req = NSMutableURLRequest(URL: NSURL(string: url)!)
         
         // No need to set user agent
-//        req.setValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/600.3.17 (KHTML, like Gecko) Version/8.0.3 Safari/600.3.17", forHTTPHeaderField: "User-Agent")
+        // req.setValue("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/600.3.17 (KHTML, like Gecko) Version/8.0.3 Safari/600.3.17", forHTTPHeaderField: "User-Agent")
         webView.loadRequest(req);
         
-        
-        /*
-        statusBarItem = statusBar.statusItemWithLength(-1)
-        var si = NSImage(named: "StatusItem")
-        si?.setTemplate(true)
-        statusBarItem.image = si
-        statusBarItem.target = self
-        statusBarItem.action = Selector("statusBarItemClicked")
-        */
-        /*
-        var contents : [String] = NSFileManager.defaultManager().contentsOfDirectoryAtPath("~/Library/Preferences/ByHost/".stringByExpandingTildeInPath, error: nil) as [String];
-        contents = contents.filter( { (file: String) -> Bool in
-            return file.rangeOfString("com.apple.notificationcenterui") != nil
-        })
-        var myDict = NSDictionary(contentsOfFile: "~/Library/Preferences/ByHost/".stringByExpandingTildeInPath+"/"+contents[0])
-        println(myDict!["doNotDisturb"]!)
-        */
-        
-        
     }
     
-    func windowDidResize(notification: NSNotification) {
-        sizeWindow(notification.object as! NSWindow)
-    }
-    
-    
-    func sizeWindow(window: NSWindow) {
-        
-        if window.frame.width > 630.0 && !self.isFullscreen {
-            toolbarTrenner.minSize = NSSize(width: 1, height: 100)
-            toolbarTrenner.maxSize = NSSize(width: 1, height: 100)
-            toolbarTrenner.view?.frame = CGRectMake(0, 0, 1, 100)
-            toolbarTrenner.view?.layer?.backgroundColor = NSColor(white: 0.9, alpha: 1.0).CGColor
-            
-            toolbarSpacing.minSize = NSSize(width: 157, height: 100)
-            toolbarSpacing.maxSize = NSSize(width: 157, height: 100)
-        } else {
-            toolbarTrenner.view?.layer?.backgroundColor = NSColor(white: 1.0, alpha: 0.0).CGColor
-            
-            toolbarSpacing.minSize = NSSize(width: 0, height: 100)
-            toolbarSpacing.maxSize = NSSize(width: 0, height: 100)
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        if object as! NSObject == webView && keyPath == "estimatedProgress" {
+            progressIndicator.doubleValue = webView.estimatedProgress
         }
-        
-        titleLabel.windowDidResize()
     }
     
     func webView(webView: WKWebView, decidePolicyForNavigationAction navigationAction: WKNavigationAction, decisionHandler: ((WKNavigationActionPolicy) -> Void)) {
         
         if let url = navigationAction.request.URL {
-            var inApp = url.host!.hasSuffix("messenger.com") && !url.path!.hasPrefix("/l.php");
-            var isLogin = url.host!.hasSuffix("facebook.com") && (url.path!.hasPrefix("/login") || url.path!.hasPrefix("/checkpoint"));
+            var isBlank = url.absoluteString == "about:blank"
+            var inApp = false
+            var isLogin = false
+            var isLogout = false
+            var isTalkGadget = false
+            var isPlus = false
+            var isNotificationsFrame = false
+            var isClientChannel = false
+            var isClientProxy = false
+            var isInvalidation = false
+            var isOauth = false
+            var isPicker = false
+            if let host = url.host, let path = url.path {
+                inApp = host == "plus.google.com" && path.hasPrefix("/hangouts");
+                isLogin = host.rangeOfString(".google.") != nil && (path.hasPrefix("/ServiceLogin") || path.hasPrefix("/CheckCookie") || path.hasPrefix("/accounts/SetSID"));
+                isLogout = host == "accounts.google.com" && path.hasPrefix("/Logout") || host.rangeOfString(".google.") != nil && path.hasPrefix("/accounts/Logout2");
+                isTalkGadget = host == "talkgadget.google.com"
+                isPlus = host == "plus.google.com"
+                isNotificationsFrame = host == "plus.google.com" && path.hasSuffix("/notifications/frame");
+                isClientChannel = host.hasSuffix("client-channel.google.com");
+                isClientProxy = host.hasPrefix("client") && host.hasSuffix(".google.com") && path.hasPrefix("/static/proxy");
+                isInvalidation = host.hasSuffix(".google.com") && path.hasPrefix("/invalidation");
+                isOauth = host == "accounts.google.com" && path.hasPrefix("/o/oauth");
+                isPicker = host == "docs.google.com" && path.hasPrefix("/picker");
+            }
             
-            if inApp || isLogin {
+            if inApp || isLogin || isLogout || isBlank || isTalkGadget || isPlus || isNotificationsFrame || isClientChannel || isClientProxy || isInvalidation || isOauth || isPicker {
                 decisionHandler(.Allow)
             } else {
-                NSWorkspace.sharedWorkspace().openURL(navigationAction.request.URL!)
+                if url.absoluteString == "https://plus.google.com/_/css-load-error/" {
+                    println("Ignoring CSS load error")
+                } else {
+                    println("External url: \(url)")
+                    NSWorkspace.sharedWorkspace().openURL(url)
+                }
                 decisionHandler(.Cancel)
             }
+        } else {
+            decisionHandler(.Cancel)
         }
     }
     
@@ -188,10 +168,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDe
         reopenWindow(self)
     }
     
-    func changeDockIcon() {
-        NSApplication.sharedApplication().applicationIconImage = NSImage(named: "Image")
-    }
-    
     func applicationShouldOpenUntitledFile(sender: NSApplication) -> Bool {
         return true
     }
@@ -199,16 +175,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDe
     func applicationOpenUntitledFile(sender: NSApplication) -> Bool {
         reopenWindow(self)
         return true
-    }
-
-    func windowDidEnterFullScreen(notification: NSNotification) {
-        isFullscreen = true
-        sizeWindow(window)
-    }
-    
-    func windowDidExitFullScreen(notification: NSNotification) {
-        isFullscreen = false
-        sizeWindow(window)
     }
     
     
@@ -240,33 +206,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDe
     func endLoading() {
         timer.invalidate()
         loadingView.hidden = true
-        spinner.stopAnimation(self)
-        spinner.hidden = true
+        progressIndicator.hidden = true
         longLoading.hidden = true
-        
-        for item in toolbar.items {
-            let i = item as! NSToolbarItem
-            i.view?.hidden = false
-            i.image = NSImage(named: i.label)
-        }
-        
-        sizeWindow(window)
-        
     }
     
     func startLoading() {
         loadingView.hidden = false
-        spinner.startAnimation(self)
-        spinner.hidden = false
+        progressIndicator.hidden = false
         longLoading.hidden = true
-        timer = NSTimer.scheduledTimerWithTimeInterval(10, target: self, selector: Selector("longLoadingMessage"), userInfo: nil, repeats: false)
-        
-        for item in toolbar.items {
-            let i = item as! NSToolbarItem
-            i.view?.hidden = true
-            i.image = NSImage(named: "White")
-        }
-        
+        timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: Selector("longLoadingMessage"), userInfo: nil, repeats: false)
     }
     
     func longLoadingMessage() {

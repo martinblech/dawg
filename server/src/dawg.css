@@ -1,0 +1,9 @@
+[role="main"],
+[role="region"],
+[guidedhelpid="talkwithfriends"],
+[guidedhelpid="appindicator_content"],
+.GY,
+#gb,
+#gba {
+    display: none !important;
+}
