@@ -5,18 +5,5 @@
         <link>https://raw.githubusercontent.com/martinblech/dawg/master/update_feed.xml</link>
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
-        <item>
-            <title>Version 2.0.3</title>
-            <sparkle:releaseNotesLink>
-                http://martinblech.github.io/dawg/version/2.0.html
-            </sparkle:releaseNotesLink>
-            <pubDate>Fri, 7 Apr 2015 11:20:11 +0000</pubDate>
-            <link>http://martinblech.github.io/dawg/version/2.0.html</link>
-            <enclosure url="https://martinblech.github.io/dawg/releases/download/v2.0.3/Dawg.app.zip"
-                sparkle:version="579"
-                sparkle:shortVersionString="2.0.3"
-                length="3381354"
-                type="application/octet-stream" />
-        </item>
     </channel>
 </rss>
