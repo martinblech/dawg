@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, WKNavigationDelegate, WKUIDe
             var source = String(contentsOfFile: path+"/server/dist/dawg.js", encoding: NSUTF8StringEncoding, error: nil)!+"init();"
         #else
             let version = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String
-            var jsurl = "https://dani.taurus.uberspace.de/Dawgapp/fb" + version + ".js"
+            var jsurl = "https://raw.githubusercontent.com/martinblech/dawg/v" + version + "/server/dist/dawg.js"
             if (NSBundle.mainBundle().objectForInfoDictionaryKey("DawgJavaScriptURL") != nil) {
                 jsurl = NSBundle.mainBundle().objectForInfoDictionaryKey("DawgJavaScriptURL") as! String
             }
